@@ -39,6 +39,7 @@ func main() {
 			report.NewTableTD([]interface{}{report.NewText("部门领导：")}),
 		},
 	}
+	// 合并单元格操作
 	trSpan := [][]int{
 		{0, 3},
 		{0, 3},
@@ -46,12 +47,16 @@ func main() {
 		{4},
 		{4},
 	}
+	// 头表格宽度
 	tdw := []int{1687, 2993, 5687, 1693}
+	// 单元格宽度
 	thw := []int{1687, 2993, 5687, 1693}
+	// 单元格高度
 	tdh := []int{3, 5, 5, 2, 2}
 
 	tableObj := report.NewTable("", true, table, tableHead, thw, trSpan, tdw, tdh)
 	doc.WriteTable(tableObj)
+	// 这一行要加上，结束word
 	doc.WriteEndHead(false, "text", "", "")
 
 }
